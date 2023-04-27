@@ -1,0 +1,36 @@
+.clear {
+    background: transparent;
+    border: none;
+    color: rgb(219, 211, 211);
+}
+
+.solid {
+    margin-top: 8px;
+    background: rgb(247, 246, 246);
+    border: none;
+    border-radius: 5px;
+}
+
+.outline {
+    margin-top: 8px;
+    background: transparent;
+    color: rgb(247, 246, 246);
+    border: 1px solid rgb(247, 246, 246);
+    border-radius: 5px;
+}
+
+button:active{
+    opacity: 0.8;
+}
+
+button[disabled] {
+    opacity: 0.6;
+}
+
+.error {
+    color:rgb(202, 76, 76);
+    font-size: 12px;
+    margin-left: 5px;
+    padding-bottom: 5px;
+    display: none;
+}
