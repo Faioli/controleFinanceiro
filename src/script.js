@@ -46,6 +46,31 @@ function isPasswordValid() {
     return true;
 }
 
+function login() {
+
+    showLoading();
+    firebase.auth().signInWithEmailAndPassword(
+        form.email().value, form.password().value
+    ).then(resp => {
+        hideLoading();
+        window.location.href = "pages/home/home.html";
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    });
+}
+
+function getErrorMessage(error) {
+    if (error.code == "auth/user-not-found") {
+        return "Este usuário não existe";
+    }
+    return error.message;
+}
+
+function register() {
+    window.location.href = "pages/register/register.html";
+}
+
 const form = {
     email: () => document.getElementById("email"),
     emailInvalidError: () => document.getElementById("email-invalid-error"),
