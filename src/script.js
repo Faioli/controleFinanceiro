@@ -53,7 +53,7 @@ function login() {
         form.email().value, form.password().value
     ).then(resp => {
         hideLoading();
-        window.location.href = "pages/home/home.html";
+        window.location.href = "pages/home/index.html";
     }).catch(error => {
         hideLoading();
         alert(getErrorMessage(error));
@@ -64,11 +64,25 @@ function getErrorMessage(error) {
     if (error.code == "auth/user-not-found") {
         return "Este usuário não existe";
     }
+    if (error.code == "auth/wrong-password") {
+        return "Senha inválida";
+    }
     return error.message;
 }
 
 function register() {
     window.location.href = "pages/register/register.html";
+}
+
+function recoverPassword() {
+    showLoading();
+    firebase.auth().sendPasswordResetEmail(form.email().value).then(() => {
+        hideLoading();
+        alert("Email enviado com sucesso!");
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    });
 }
 
 const form = {
