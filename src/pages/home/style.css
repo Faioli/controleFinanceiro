@@ -9,3 +9,32 @@ header {
 header button {
     width: auto;
 }
+
+ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+ol li {
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    padding: 8px 16px;
+    margin: 16px 32px;
+    border-radius: 8px;
+}
+
+ol li:hover {
+    opacity: 0.8;
+}
+
+ol li.expense {
+    background-color: rgb(209, 87, 87);
+}
+
+ol li.income {
+    background-color: rgb(87, 170, 101);
+}
+
+p {
+    margin: 4px 0;
+}

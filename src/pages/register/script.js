@@ -1,6 +1,19 @@
+const form = {
+    email: () => document.getElementById('email'),
+    emailInvalidError: () => document.getElementById('email-invalid-error'),
+    emailRequiredError: () => document.getElementById('email-required-error'),
+    password: () => document.getElementById('password'),
+    passwordRequiredError: () => document.getElementById('password-required-error'),
+    passwordMinLengthError: () => document.getElementById('password-min-length-error'),
+    confirmPassword: () => document.getElementById('confirmPassword'),
+    confirmPasswordRequiredError: () => document.getElementById('confirm-password-required-error'),
+    passwordDosentMatchError: () => document.getElementById('password-doesnt-match-error'),
+    registerButton: () => document.getElementById('register-button')
+}
+
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-        window.location.href = "../../pages/home/index.html"
+        window.location.href = "../home/index.html";
     }
 })
 
@@ -41,6 +54,7 @@ function register() {
     firebase.auth().createUserWithEmailAndPassword(
         email, password
     ).then(() => {
+        console.log("Esconde")
         hideLoading();
         window.location.href = "../../pages/home/index.html";
     }).catch(error => {
@@ -64,7 +78,8 @@ function validatePasswordsMatch() {
 }
 
 function toggleRegisterButtonDisable() {
-    form.registerButton().disabled = !isFormValid();
+    const formValid = isFormValid();
+    form.registerButton().disabled = !formValid;
 }
 
 function isFormValid() {
@@ -82,20 +97,7 @@ function isFormValid() {
 
     if (password != confirmPassword) {
         return false;
-    }
+        }
 
     return true;
-}
-
-const form = {
-    email: () => document.getElementById('email'),
-    emailInvalidError: () => document.getElementById('email-invalid-error'),
-    emailRequiredError: () => document.getElementById('email-required-error'),
-    password: () => document.getElementById('password'),
-    passwordRequiredError: () => document.getElementById('password-required-error'),
-    passwordMinLengthError: () => document.getElementById('password-min-length-error'),
-    confirmPassword: () => document.getElementById('confirmPassword'),
-    confirmPasswordRequiredError: () => document.getElementById('confirm-password-required-error'),
-    passwordDosentMatchError: () => document.getElementById('password-doesnt-match-error'),
-    registerButton: () => document.getElementById('register-button')
 }

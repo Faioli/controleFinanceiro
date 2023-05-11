@@ -1,6 +1,16 @@
+const form = {
+    email: () => document.getElementById("email"),
+    emailInvalidError: () => document.getElementById("email-invalid-error"),
+    emailRequiredError: () => document.getElementById("email-required-error"),
+    loginButton: () => document.getElementById("login-button"),
+    password: () => document.getElementById("password"),
+    passwordRequiredError: () => document.getElementById("password-required-error"),
+    recoverPassword: () => document.getElementById("recover-password-button")
+}
+
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-        window.location.href = "pages/home/index.html"
+        window.location.href = "pages/home/index.html";
     }
 })
 
@@ -77,7 +87,7 @@ function getErrorMessage(error) {
 }
 
 function register() {
-    window.location.href = "pages/register/register.html";
+    window.location.href = "pages/register/index.html";
 }
 
 function recoverPassword() {
@@ -89,14 +99,4 @@ function recoverPassword() {
         hideLoading();
         alert(getErrorMessage(error));
     });
-}
-
-const form = {
-    email: () => document.getElementById("email"),
-    emailInvalidError: () => document.getElementById("email-invalid-error"),
-    emailRequiredError: () => document.getElementById("email-required-error"),
-    loginButton: () => document.getElementById("login-button"),
-    password: () => document.getElementById("password"),
-    passwordRequiredError: () => document.getElementById("password-required-error"),
-    recoverPassword: () => document.getElementById("recover-password-button")
 }
