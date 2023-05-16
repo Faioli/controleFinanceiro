@@ -11,7 +11,7 @@ function showLoading() {
 }
 
 function hideLoading() {
-    const loadings = document.getElementsByClassName("loading");
+    const loadings = document.getElementsByClassName('loading');
     if (loadings.length) {
         loadings[0].remove();
     }

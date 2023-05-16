@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>Controle Financeiro</title>
+
+        <meta charset="UTF-8">
     </head>
 
     <body>
@@ -10,33 +12,8 @@
                 Sair
             </button>
         </header>
-        <div>
-            <ol>
-                <li class="expense">
-                    <b>04/01/2022</b>
-                    <p>R$ 40,00</p>
-                    <p>Supermercado</p>
-                </li>
-                <li class="income">
-                    <b>03/01/2022</b>
-                    <p>R$ 10,00</p>
-                    <p>Salário</p>
-                    <p>Empresa A</p>
-                </li>
-                <li class="expense">
-                    <b>02/01/2022</b>
-                    <p>R$ 30,00</p>
-                    <p>Transporte</p>
-                    <p>Metrô</p>
-                </li>
-                <li class="expense">
-                    <b>01/01/2022</b>
-                    <p>R$ 20,00</p>
-                    <p>Aluguel</p>
-                </li>
-            </ol>
-            <button class="fab fixed bottom right">+</button>
-        </div> 
+        <ol id="transactions"></ol>
+        <button class="fab fixed bottom right" onclick="newTransaction()">+</button>
     </body>
 
     <link rel="stylesheet" href="style.css" />
@@ -44,8 +21,10 @@
 
     <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore-compat.js"></script>
     <script src="../../firebase-init.js"></script>
     <script src="../../auth-guard.js"></script>
+    <script src="../../loading.js"></script>
     <script src="script.js"></script>
 
 </html>

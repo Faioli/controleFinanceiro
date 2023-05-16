@@ -7,4 +7,4 @@ firebaseConfig = {
         appId: "1:381108485379:web:a25375686e910e99d5fd36"
     };
 
-firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig);
