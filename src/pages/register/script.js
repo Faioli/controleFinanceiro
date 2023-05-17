@@ -54,7 +54,6 @@ function register() {
     firebase.auth().createUserWithEmailAndPassword(
         email, password
     ).then(() => {
-        console.log("Esconde")
         hideLoading();
         window.location.href = "../../pages/home/index.html";
     }).catch(error => {

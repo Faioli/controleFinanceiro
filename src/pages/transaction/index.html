@@ -18,32 +18,43 @@
                     <input type="radio" name="type" id="income"><label for="income">Receita</label>
                 </div>
                 <div class="form-field">
-                    <input type="date">
-                </div>
+                    <input type="date" onchange="onChangeDate()" id="date">
+                    <div class="error" id="date-required-error" >
+                        Data é obrigatória / inválida
+                    </div>
                 <div class="form-field">
-                    <select>
-                        <option>Dólar</option>
-                        <option>Euro</option>
-                        <option selected>Real</option>
+                    <select id="currency">
+                        <option value="USD">Dólar</option>
+                        <option value="EUR">Euro</option>
+                        <option value="BRL" selected>Real</option>
                     </select>
                 </div>
                 <div class="form-field">
-                    <input type="number" placeholder="R$ 00,00">
+                    <input type="number" placeholder="R$ 00,00" onchange="onChangeValue()" id="value">
+                    <div class="error" id="value-required-error" >
+                        Valor é obrigatório
+                    </div>
+                    <div class="error" id="value-less-or-equal-to-zero-error" >
+                        Valor deve ser maior que zero
+                    </div>
                 </div>
                 <div class="form-field">
-                    <select>
-                        <option>-- Selecione o tipo de transação --</option>
+                    <select onchange="onChangeTransactionType()" id="transaction-type">
+                        <option value="">-- Selecione o tipo de transação --</option>
                         <option>Acomodação</option>
                         <option>Alimentação</option>
                         <option>Salário</option>
                         <option>Transporte</option>
                         <option>Outros</option>
                     </select>
+                    <div class="error" id="transaction-type-required-error" >
+                        Tipo de transação é obrigatório
+                    </div>
                 </div>
                 <div class="form-field">
-                    <input type="text" placeholder="Descrição">
+                    <input type="text" id="description" placeholder="Descrição">
                 </div>
-                <button type="button" class="solid">Salvar</button>
+                <button type="button" class="solid" disabled id="save-button" onclick="saveTransaction()">Salvar</button>
                 <button type="button" class="clear">Cancelar</button>
             </form>
         </main>
